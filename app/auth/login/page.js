@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import { FaSquareGithub } from "react-icons/fa6";
+import { signIn } from "@/auth";
 
 export default function LoginPage(){
     return(
@@ -23,7 +24,11 @@ export default function LoginPage(){
                  </form>
                  <p className="text-gray-500 text-center mt-2">Or sign up with</p>
                  <div className="flex justify-center gap-4 pb-10">
-                   <form>
+                   <form action={async ()=>{
+                                   "use server"
+                              await signIn("google")
+                   } } 
+                   >
                       <button className="w-12 h-12 cursor-pointer flex justify-center items-center rounded-md shadow-md">
                          <FcGoogle  className="text-4xl"/>
                       </button>
