@@ -1,9 +1,11 @@
 import { TextField } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import { FaSquareGithub } from "react-icons/fa6";
-import { signIn } from "@/auth";
+import { auth, signIn } from "@/auth";
 
-export default function LoginPage(){
+export default async function LoginPage(){
+    const session = await auth();
+    console.log(session);
     return(
         <main className="min-h-screen">
             <div className="bg-[url(/loginbg.jpg)] h-screen bg-no-repeat bg-cover flex justify-center items-center px-5 py-10 ">
